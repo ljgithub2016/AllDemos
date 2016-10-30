@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false" >
+	<property name="appName">AllDemos</property>
+	<property name="version">1.0</property>
+	<contextName>${appName}</contextName>
+	<timestamp key="bySeconds" datePattern="yyyy-MM-dd HH:mm:ss" />
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">   
+    <!-- encoder 默认配置为PatternLayoutEncoder -->   
+    <encoder>   
+      <pattern>%msg%n</pattern>   
+    </encoder>   
+  </appender>   
+  
+  <appender name="FILE" class= "ch.qos.logback.core.FileAppender">
+  	<file>E:\Demos_File\bdfile2.txt</file>
+  	<encoder>
+  		<pattern>%msg%n</pattern>
+  	</encoder>
+  	<append>true</append>
+  	<prudent>false</prudent>
+  </appender>
+  
+   
+  <!-- logback为java中的包 -->   
+  <logger name="com.lj.hirecar.logback"/>   
+  
+  <!--logback.LogbackDemo：类的全路径 -->   
+  <logger name="com.lj.hirecar.logback.RootLoggerTest" level="INFO" additivity="false">  
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="STDOUT" />  
+  </logger>   
+  
+  <!-- 爬虫Spider logger -->
+  <logger name= "com.lj.hirecar.spider" level="INFO" additivity="false">
+  		<appender-ref ref="FILE" />
+  </logger>
+   
+  <root level="ERROR">             
+    <appender-ref ref="STDOUT" />   
+  </root>     
+  
+</configuration>
