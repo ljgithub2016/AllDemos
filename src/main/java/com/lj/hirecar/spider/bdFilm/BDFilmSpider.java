@@ -24,7 +24,7 @@ public class BDFilmSpider {
 		Spider.create(new MyPageProccessor())
 			.addUrl("http://www.bd-film.com/zx/index.htm") //设置需要爬的网站
 			//.addUrl("http://www.bd-film.com/zx/22641.htm") //
-			.thread(4)
+			.thread(1)
 			.addPipeline(new MyConsoleFilmPipeline())
 			.addPipeline(new MyFileFilmPipline())
 			.start();
